@@ -7,7 +7,7 @@
     --dark: #04000B;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 
 /*** Heading ***/
@@ -870,4 +870,193 @@ h6,
 
 .custom-table tr:hover {
     background-color: #f1f1f1;
+}
+
+/* Animation keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from { 
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from { 
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Track cards */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem auto;
+    max-width: 1200px;
+}
+
+.card3 {
+    --bg: #ffffff;
+    --hover-bg: linear-gradient(135deg, rgba(0, 64, 128, 0.9) 0%, rgba(25, 161, 118, 0.9) 100%);
+    --hover-text: rgba(255, 255, 255, 0.9);
+    text-align: left;
+    background: var(--bg);
+    padding: 2.5rem;
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: 300px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.card3:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.card__body {
+    color: #333;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+.card3 > :not(span) {
+    transition: opacity 0.5s ease;
+}
+
+.card3 > strong {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #004080;
+    margin-bottom: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.card3 span {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--hover-text);
+    border-radius: 15px;
+    font-weight: bold;
+    top: 100%;
+    font-size: 2.2rem;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card3:hover span {
+    top: 0;
+    font-size: 2.5rem;
+}
+
+.card3:hover {
+    background: var(--hover-bg);
+}
+
+.card3:hover > div, .card3:hover > strong {
+    opacity: 0;
+}
+
+/* Call for papers boxes */
+.col-box { 
+    border: 1px solid #000;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.col-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.dark-blue-bg {
+    background-color: #004080; /* Darker blue */
+}
+
+.light-green-bg {
+    background-color: #50b350; /* Lighter green */
+}
+
+.col-box ol{ 
+    padding-left: 0%;
+    text-align: left;
+}
+
+/* Responsive fixes */
+@media (max-width: 768px) {
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .timeline-item::after {
+        left: 18px;
+    }
+    
+    .timeline-right {
+        left: 0%;
+    }
+    
+    .timeline-content {
+        max-width: 100%;
+    }
+    
+    .cards-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .cuc h1 {
+        font-size: 2.5rem;
+    }
+    
+    .cuc p {
+        font-size: 1.2rem;
+    }
 }
